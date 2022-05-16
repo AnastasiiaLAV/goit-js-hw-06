@@ -10,8 +10,7 @@ refs.input.addEventListener("input", replaceName)
 
 function replaceName(event) {
     event.preventDefault();
-    if (refs.input.textContent === "") {
-        refs.output.textContent = "Anonymous"
-    }
-    refs.output.textContent = event.currentTarget.value;
+    refs.input.value === "" ?
+        refs.output.textContent = "Anonymous" :
+        refs.output.textContent = event.currentTarget.value;
 }

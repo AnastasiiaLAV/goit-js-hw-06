@@ -13,9 +13,9 @@ refs.form.addEventListener("submit", submitForm);
 function submitForm(event) {
     event.preventDefault();
     if (refs.form.email.value === "" || refs.form.password.value === "") {
-        return console.log("Bсе поля должны быть заполнены!");
+        alert("Bсе поля должны быть заполнены!");
     }
-
     console.log(`Email: ${refs.form.email.value}, Password: ${refs.form.password.value}`);
+
     event.currentTarget.reset();
 }
