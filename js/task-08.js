@@ -12,15 +12,17 @@ refs.form.addEventListener("submit", submitForm);
 
 function submitForm(event) {
     event.preventDefault();
+    const { email, password } = event.target;
 
-    const formData = new FormData(event.currentTarget);
+    if (email.value === "" || password.value === "") {
+        alert("Bсе поля должны быть заполнены!")
+        return event.target.reset();
+    }
 
-    formData.forEach((value, name) => {
-        if (value === "" || name === "") {
-            alert("Bсе поля должны быть заполнены!")
-            return event.currentTarget.reset();
-        }
-        console.log({ name, value });
-    })
-    event.currentTarget.reset();
-};
+    console.log({
+        email: email.value,
+        password: password.value
+    });
+
+    event.target.reset();
+}
