@@ -7,15 +7,19 @@
 const refs = {
     form: document.querySelector(".login-form"),
 }
-console.log(refs.form.email.value)
+
 refs.form.addEventListener("submit", submitForm);
 
 function submitForm(event) {
     event.preventDefault();
-    if (refs.form.email.value === "" || refs.form.password.value === "") {
-        alert("Bсе поля должны быть заполнены!");
-    }
-    console.log(`Email: ${refs.form.email.value}, Password: ${refs.form.password.value}`);
 
+    const formData = new FormData(event.currentTarget);
+
+    formData.forEach((value, name) => {
+        if (value === "" || name === "") {
+            alert("Bсе поля должны быть заполнены!")
+        }
+        console.log({ name, value });
+    })
     event.currentTarget.reset();
-}
+};
