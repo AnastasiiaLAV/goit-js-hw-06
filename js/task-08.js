@@ -18,6 +18,7 @@ function submitForm(event) {
     formData.forEach((value, name) => {
         if (value === "" || name === "") {
             alert("Bсе поля должны быть заполнены!")
+            return event.currentTarget.reset();
         }
         console.log({ name, value });
     })
